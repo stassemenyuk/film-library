@@ -1,13 +1,15 @@
 .filter-button {
   padding: 10px;
   border: none;
-  transition: 0.3s;
+  transition: 0.4s;
   background: transparent;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   box-shadow: 0px 0px 2px 0px rgba(34, 60, 80, 0.61);
 }
 
 .filter-button:hover {
   box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.61);
+}
+
+.chosen {
+  background: rgba(34, 60, 80, 0.61);
 }

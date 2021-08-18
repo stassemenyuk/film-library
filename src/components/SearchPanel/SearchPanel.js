@@ -4,6 +4,16 @@ import './SearchPanel.css';
 
 export default class SearchPanel extends Component {
   render() {
-    return <input className="search-input" type="text" placeholder="Поиск по названию" />;
+    const { onChange } = this.props;
+    return (
+      <input
+        className="search-input"
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
+        type="text"
+        placeholder="Поиск по названию"
+      />
+    );
   }
 }

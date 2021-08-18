@@ -20,7 +20,7 @@ export default class FilmListItem extends Component {
   }
 
   render() {
-    const { title, src, alt, important, like, onImportant, onLike } = this.props;
+    const { title, src, alt, important, like, onImportant, onLike, genre } = this.props;
 
     let classNames = '';
     if (like) {
@@ -42,6 +42,7 @@ export default class FilmListItem extends Component {
     return (
       <div className={classNames} onDoubleClick={onLike}>
         <div className="film__title">{title}</div>
+        <div className="film__genre">Жанр: {genre}</div>
         <div className="film__poster">
           <img className="film__poster__img" src={src} alt={alt} />
         </div>

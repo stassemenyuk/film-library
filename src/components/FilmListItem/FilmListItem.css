@@ -4,8 +4,12 @@
 
 .film__title {
   font-size: 18px;
-  max-width: 100%;
   max-height: 27px;
+  overflow: hidden;
+}
+
+.film__genre {
+  font-size: 14px;
 }
 
 .film__poster__img {
