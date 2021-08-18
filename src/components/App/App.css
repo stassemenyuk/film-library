@@ -1,11 +1,19 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .app {
   max-width: 800px;
   margin: 0 auto;
-  border-radius: 10px;
+  padding: 20px;
 }
 
 .search-panel {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+.scroll-down {
+  cursor: pointer;
 }

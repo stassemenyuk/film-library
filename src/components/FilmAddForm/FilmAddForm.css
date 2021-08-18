@@ -33,6 +33,11 @@
   background: rgba(34, 60, 80, 0.61);
 }
 
+.form__title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .hide {
   display: none;
 }

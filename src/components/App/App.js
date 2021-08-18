@@ -138,6 +138,21 @@ export default class App extends Component {
           important: false,
           id: 8,
         },
+        {
+          title: 'В джазе только девушки',
+          genre: 'Комедия',
+          src: `https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Some_Like_It_Hot_%281959_poster%29.jpg/195px-Some_Like_It_Hot_%281959_poster%29.jpg`,
+          alt: 'В джазе только девушки',
+          descr: `«В джа́зе то́лько де́вушки»
+           (англ. Some Like It Hot — «Не́которые лю́бят погоряче́е»)[~ 1][1] — музыкальная комедия режиссёра и продюсера Билли Уайлдера, одна из центральных
+            работ режиссёра и вторая его картина, созданная в тандеме со сценаристом Изи Даймондом. В главных ролях снялись Тони Кёртис, Джек Леммон и
+             Мэрилин Монро. Сценарий комедии был создан по мотивам французского фильма Ришара Поттье «Фанфары любви» 1935 года и его одноимённого ремейка
+              1951 года, снятого Куртом Хоффманом в Германии[2]. В картине рассказывается о приключениях двух музыкантов, вынужденных скрываться в женском
+               обличье от преследующих их гангстеров; действие разворачивается в США во времена сухого закона. В прокат картина вышла 29 марта 1959 года.`,
+          like: false,
+          important: false,
+          id: 9,
+        },
       ],
       filter: 'all',
       search: '',
@@ -306,12 +321,22 @@ export default class App extends Component {
       visibility = false;
     }
 
+    let scrollClassNames = 'scroll-down filter-button';
+    if (!visibility) scrollClassNames += ' hide';
+
     return (
       <div className="app">
         <AppHeader films={filmsNumber} likes={likesNumber} important={importantNumber} />
         <FilmGenreFilter onFilter={this.changeGenreFilter} />
         <div className="search-panel">
           <SearchPanel onChange={this.changeSearch} />
+          <div
+            className={scrollClassNames}
+            onClick={() => {
+              document.documentElement.scrollTop = document.documentElement.scrollHeight;
+            }}>
+            Добавить фильм
+          </div>
           <FilmFilter onFilter={this.changeFilter} />
         </div>
         <FilmList

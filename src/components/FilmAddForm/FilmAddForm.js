@@ -28,6 +28,7 @@ export default class FilmAddForm extends Component {
           e.preventDefault();
           onAdd(title, genre, src, descr);
         }}>
+        <div className="form__title">Добавление нового фильма</div>
         <input
           type="text"
           placeholder="Название"
