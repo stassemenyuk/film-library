@@ -40,7 +40,7 @@ export default class FilmListItem extends Component {
     }
 
     return (
-      <div className={classNames}>
+      <div className={classNames} onDoubleClick={onLike}>
         <div className="film__title">{title}</div>
         <div className="film__poster">
           <img className="film__poster__img" src={src} alt={alt} />

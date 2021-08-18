@@ -56,9 +56,13 @@ export default class App extends Component {
           id: 3,
         },
       ],
+      filter: 'all',
+      search: '',
     };
     this.onToggleImportant = this.onToggleImportant.bind(this);
     this.onToggleLike = this.onToggleLike.bind(this);
+    this.filterFilms = this.filterFilms.bind(this);
+    this.changeFilter = this.changeFilter.bind(this);
   }
 
   onToggleImportant(id) {
@@ -87,18 +91,47 @@ export default class App extends Component {
     });
   }
 
+  changeFilter(filter) {
+    this.setState({
+      filter,
+    });
+  }
+
+  filterFilms(filter, items) {
+    if (filter === 'all') {
+      return items;
+    } else {
+      if (filter === 'like') {
+        const newArr = items.filter((item) => {
+          return item.like;
+        });
+        return newArr;
+      } else {
+        const newArr = items.filter((item) => {
+          return item.important;
+        });
+        return newArr;
+      }
+    }
+  }
+
   render() {
-    const { films } = this.state;
+    const { films, filter } = this.state;
     const filmsNumber = this.state.films.length;
+    const visibleFilms = this.filterFilms(filter, films);
 
     return (
       <div className="app">
         <AppHeader films={filmsNumber} />
         <div className="search-panel">
           <SearchPanel />
-          <FilmFilter />
+          <FilmFilter onFilter={this.changeFilter} />
         </div>
-        <FilmList films={films} onImportant={this.onToggleImportant} onLike={this.onToggleLike} />
+        <FilmList
+          films={visibleFilms}
+          onImportant={this.onToggleImportant}
+          onLike={this.onToggleLike}
+        />
         <FilmAddForm />
       </div>
     );
