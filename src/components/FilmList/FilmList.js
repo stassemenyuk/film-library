@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 
+import FilmListItem from '../FilmListItem/FilmListItem';
+
+import './FilmList.css';
+
 export default class FilmList extends Component {
   render() {
-    return <div></div>;
+    const { films } = this.props;
+    const elements = films.map((item) => {
+      const { id, ...itemProps } = item;
+      return (
+        <div key={id} className="film-list__item">
+          <FilmListItem
+            {...itemProps}
+            onImportant={() => this.props.onImportant(id)}
+            onLike={() => this.props.onLike(id)}
+          />
+        </div>
+      );
+    });
+    return <div className="film-list">{elements}</div>;
   }
 }

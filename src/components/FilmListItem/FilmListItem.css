@@ -1,0 +1,60 @@
+.film-list__item {
+  flex: 0 0 30%;
+}
+
+.film__title {
+  font-size: 18px;
+  max-width: 100%;
+  max-height: 27px;
+}
+
+.film__poster__img {
+  max-height: 300px;
+}
+
+.film__description__text {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.more-info {
+  border: none;
+  background: transparent;
+  display: block;
+  transition: 0.3s;
+}
+
+.more-info:hover {
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.61);
+}
+
+.user__tools {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.like-btn,
+.important-btn {
+  border: none;
+  background: transparent;
+}
+
+.like-icon,
+.important-icon {
+  transition: 0.3s;
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+.like-icon:hover,
+.important-icon:hover {
+  fill: rgb(0, 0, 0);
+}
+
+.like .like-icon {
+  fill: rgb(201, 23, 23);
+}
+
+.important .important-icon {
+  fill: rgb(255, 208, 0);
+}
