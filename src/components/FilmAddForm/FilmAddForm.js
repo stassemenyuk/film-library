@@ -15,10 +15,15 @@ export default class FilmAddForm extends Component {
 
   render() {
     const { title, genre, src, descr } = this.state;
-    const { onAdd } = this.props;
+    const { onAdd, visibility } = this.props;
+    let classNames = 'film-add-form';
+    if (!visibility) {
+      classNames += ' hide';
+    }
+
     return (
       <form
-        className="film-add-form"
+        className={classNames}
         onSubmit={(e) => {
           e.preventDefault();
           onAdd(title, genre, src, descr);

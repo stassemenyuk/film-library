@@ -5,6 +5,7 @@ import SearchPanel from '../SearchPanel/SearchPanel';
 import FilmFilter from '../FilmFilter/FilmFilter';
 import FilmList from '../FilmList/FilmList';
 import FilmAddForm from '../FilmAddForm/FilmAddForm';
+import FilmGenreFilter from '../FilmGenreFilter/FilmGenreFilter';
 
 import './App.css';
 
@@ -140,6 +141,7 @@ export default class App extends Component {
       ],
       filter: 'all',
       search: '',
+      genreFilter: 'all',
     };
     this.onToggleImportant = this.onToggleImportant.bind(this);
     this.onToggleLike = this.onToggleLike.bind(this);
@@ -148,6 +150,9 @@ export default class App extends Component {
     this.changeSearch = this.changeSearch.bind(this);
     this.searchResults = this.searchResults.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
+    this.changeFilter = this.changeFilter.bind(this);
+    this.changeGenreFilter = this.changeGenreFilter.bind(this);
+    this.filterGenreFilms = this.filterGenreFilms.bind(this);
     this.maxId = this.state.films.length + 1;
   }
 
@@ -177,6 +182,12 @@ export default class App extends Component {
     });
   }
 
+  changeGenreFilter(genreFilter) {
+    this.setState({
+      genreFilter,
+    });
+  }
+
   changeFilter(filter) {
     this.setState({
       filter,
@@ -187,6 +198,49 @@ export default class App extends Component {
     this.setState({
       search,
     });
+  }
+
+  filterGenreFilms(genreFilter, items) {
+    let newArr;
+    switch (genreFilter) {
+      case 'Боевик':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Комедия':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Фантастика':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Криминал':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Драма':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Триллер':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      case 'Детектив':
+        newArr = items.filter((elem) => {
+          return elem.genre.indexOf(genreFilter) >= 0;
+        });
+        return newArr;
+      default:
+        return items;
+    }
   }
 
   filterFilms(filter, items) {
@@ -236,15 +290,26 @@ export default class App extends Component {
   }
 
   render() {
-    const { films, filter, search } = this.state;
+    const { films, filter, search, genreFilter } = this.state;
     const filmsNumber = films.length,
       likesNumber = films.filter((item) => item.like).length,
       importantNumber = films.filter((item) => item.important).length;
-    const visibleFilms = this.filterFilms(filter, this.searchResults(search, films));
+    const visibleFilms = this.filterFilms(
+      filter,
+      this.searchResults(search, this.filterGenreFilms(genreFilter, films)),
+    );
+    let visibility;
+
+    if (filter === 'all' && genreFilter === 'all' && search === '') {
+      visibility = true;
+    } else {
+      visibility = false;
+    }
 
     return (
       <div className="app">
         <AppHeader films={filmsNumber} likes={likesNumber} important={importantNumber} />
+        <FilmGenreFilter onFilter={this.changeGenreFilter} />
         <div className="search-panel">
           <SearchPanel onChange={this.changeSearch} />
           <FilmFilter onFilter={this.changeFilter} />
@@ -254,7 +319,7 @@ export default class App extends Component {
           onImportant={this.onToggleImportant}
           onLike={this.onToggleLike}
         />
-        <FilmAddForm onAdd={this.addNewItem} />
+        <FilmAddForm onAdd={this.addNewItem} visibility={visibility} />
       </div>
     );
   }

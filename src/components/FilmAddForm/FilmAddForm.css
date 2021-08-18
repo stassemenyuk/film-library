@@ -32,3 +32,7 @@
 .film-add-form button:hover {
   background: rgba(34, 60, 80, 0.61);
 }
+
+.hide {
+  display: none;
+}
