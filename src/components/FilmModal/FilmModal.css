@@ -5,7 +5,8 @@
   max-width: 800px;
   margin: 50px auto;
   padding: 40px;
-  background: #fff;
+  color: #000;
+  background: rgb(127, 170, 202);
   overflow-x: hidden;
   overflow-y: auto;
 }

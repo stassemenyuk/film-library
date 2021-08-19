@@ -32,9 +32,9 @@ export default class FilmListItem extends Component {
       classNames += ' important';
     }
 
-    let modalClassNames = 'film-modal';
+    let modalClassNames = 'film-modal ';
     if (!this.state.show) {
-      modalClassNames += ' hide';
+      modalClassNames += ' hide ';
     }
 
     return (
