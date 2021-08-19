@@ -1,0 +1,41 @@
+.modal__window {
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.modal__film-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.modal__film-genre {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modal__film-info {
+  display: flex;
+}
+
+.modal__film-plot {
+  padding: 0 20px;
+}
+
+.modal__film-img img {
+  max-height: 440px;
+}

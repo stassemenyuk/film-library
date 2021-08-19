@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import FilmModal from '../FilmModal/FilmModal';
+
 import './FilmListItem.css';
 
 export default class FilmListItem extends Component {
@@ -20,7 +22,7 @@ export default class FilmListItem extends Component {
   }
 
   render() {
-    const { title, src, alt, important, like, onImportant, onLike, genre } = this.props;
+    const { title, src, alt, important, like, onImportant, onLike, genre, descr } = this.props;
 
     let classNames = '';
     if (like) {
@@ -30,13 +32,9 @@ export default class FilmListItem extends Component {
       classNames += ' important';
     }
 
-    let btnText, descr;
-    if (this.state.show) {
-      btnText = 'Скрыть';
-      descr = this.props.descr;
-    } else {
-      btnText = 'Подробнее';
-      descr = '';
+    let modalClassNames = 'film-modal';
+    if (!this.state.show) {
+      modalClassNames += ' hide';
     }
 
     return (
@@ -47,9 +45,20 @@ export default class FilmListItem extends Component {
           <img className="film__poster__img" src={src} alt={alt} />
         </div>
         <div className="film__description">
-          <div className="film__description__text">{descr}</div>
+          <div className={modalClassNames}>
+            <FilmModal
+              title={title}
+              src={src}
+              alt={alt}
+              genre={genre}
+              descr={descr}
+              onClose={this.getMoreInfo}
+              onLike={onLike}
+              onImportant={onImportant}
+            />
+          </div>
           <button className="more-info" onClick={this.getMoreInfo}>
-            {btnText}
+            Подробнее
           </button>
         </div>
         <div className="user__tools">

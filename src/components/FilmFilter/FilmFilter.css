@@ -1,5 +1,6 @@
 .filter-button {
   padding: 10px;
+  color: #fff;
   border: none;
   transition: 0.4s;
   background: transparent;
@@ -8,9 +9,9 @@
 }
 
 .filter-button:hover {
-  box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.61);
+  box-shadow: 0px 0px 10px 0px rgba(127, 170, 202, 0.61);
 }
 
 .chosen {
-  background: rgba(34, 60, 80, 0.61);
+  box-shadow: 0px 0px 10px 0px rgba(127, 170, 202, 0.61);
 }
