@@ -54,11 +54,11 @@ export default class FilmListItem extends Component {
         <div className="film__title">{title}</div>
         <div className="film__genre">
           Жанр:{' '}
-          <span class="genre-btn" onClick={() => onFilter(genre1)}>
+          <span className="genre-btn" onClick={() => onFilter(genre1)}>
             {genre1}
           </span>
           {symbol}
-          <span class="genre-btn" onClick={() => onFilter(genre2)}>
+          <span className="genre-btn" onClick={() => onFilter(genre2)}>
             {genre2}
           </span>
         </div>
