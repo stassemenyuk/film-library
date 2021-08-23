@@ -10,6 +10,11 @@
 
 .film__genre {
   font-size: 14px;
+  cursor: pointer;
+}
+
+.genre-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .film__poster__img {

@@ -22,7 +22,19 @@ export default class FilmListItem extends Component {
   }
 
   render() {
-    const { title, src, alt, important, like, onImportant, onLike, genre, descr } = this.props;
+    const { title, src, alt, important, like, onImportant, onLike, genre, descr, onFilter } =
+      this.props;
+    let genre1, genre2, symbol;
+    if (genre.indexOf('/') >= 0) {
+      genre1 = genre.slice(0, genre.indexOf('/'));
+      genre2 = genre.slice(genre.indexOf('/') + 1);
+      symbol = ' / ';
+      console.log(`Жанры фильма: ${title}. Первый жанр: "${genre1}", второй "${genre2}"`);
+    } else {
+      genre1 = genre;
+      genre2 = '';
+      symbol = '';
+    }
 
     let classNames = '';
     if (like) {
@@ -38,11 +50,20 @@ export default class FilmListItem extends Component {
     }
 
     return (
-      <div className={classNames} onDoubleClick={onLike}>
+      <div className={classNames}>
         <div className="film__title">{title}</div>
-        <div className="film__genre">Жанр: {genre}</div>
+        <div className="film__genre">
+          Жанр:{' '}
+          <span class="genre-btn" onClick={() => onFilter(genre1)}>
+            {genre1}
+          </span>
+          {symbol}
+          <span class="genre-btn" onClick={() => onFilter(genre2)}>
+            {genre2}
+          </span>
+        </div>
         <div className="film__poster">
-          <img className="film__poster__img" src={src} alt={alt} />
+          <img className="film__poster__img" onDoubleClick={onLike} src={src} alt={alt} />
         </div>
         <div className="film__description">
           <div className={modalClassNames}>

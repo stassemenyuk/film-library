@@ -48,7 +48,7 @@ export default class App extends Component {
         },
         {
           title: 'Остров проклятых',
-          genre: 'Триллер / Детектив',
+          genre: 'Триллер/Детектив',
           src: `https://upload.wikimedia.org/wikipedia/ru/thumb/2/22/Kinopoisk.ru-Shutter-Island-1094940.jpg/203px-Kinopoisk.ru-Shutter-Island-1094940.jpg`,
           alt: 'Остров проклятых',
           descr: `«Остров проклятых» (англ. Shutter Island) — американский детективный 
@@ -74,7 +74,7 @@ export default class App extends Component {
         },
         {
           title: 'Крёстный отец ',
-          genre: 'Драма / Криминал',
+          genre: 'Драма/Криминал',
           src: `https://upload.wikimedia.org/wikipedia/ru/thumb/c/c4/Godfather_vhs.jpg/220px-Godfather_vhs.jpg`,
           alt: 'Крёстный отец ',
           descr: `«Крёстный оте́ц» (англ. The Godfather) — эпическая
@@ -91,7 +91,7 @@ export default class App extends Component {
         },
         {
           title: 'Бойцовский клуб',
-          genre: 'Триллер / Драма',
+          genre: 'Триллер/Драма',
           src: `https://upload.wikimedia.org/wikipedia/ru/8/8a/Fight_club.jpg`,
           alt: 'Бойцовский клуб',
           descr: `«Бойцо́вский клуб» (англ. Fight Club) — американский
@@ -108,7 +108,7 @@ export default class App extends Component {
         },
         {
           title: 'Криминальное чтиво',
-          genre: 'Криминал / Драма',
+          genre: 'Криминал/Драма',
           src: `https://upload.wikimedia.org/wikipedia/ru/thumb/9/93/Pulp_Fiction.jpg/211px-Pulp_Fiction.jpg`,
           alt: 'Криминальное чтиво',
           descr: `«Кримина́льное чти́во» (англ. Pulp Fiction) — кинофильм режиссёра Квентина Тарантино[2]. Сюжет
@@ -152,6 +152,21 @@ export default class App extends Component {
           like: false,
           important: false,
           id: 9,
+        },
+        {
+          title: 'Космический джем: Новое поколение',
+          genre: 'Комедия',
+          src: `https://upload.wikimedia.org/wikipedia/ru/thumb/5/5b/Space_Jam_2_poster.jpg/202px-Space_Jam_2_poster.jpg`,
+          alt: 'Космический джем: Новое поколение',
+          descr: `«Космический джем: Новое поколение»
+           (англ. Space Jam: A New Legacy) — американский анимационно-игровой
+            спортивный фильм режиссёра Малкольма Д. Ли. Фильм является продолжением
+             фильма «Космический джем», в главной роли в нём снялся Леброн Джеймс.
+              В фильме появились такие персонажи «Looney Tunes», как Багз Банни, Даффи Дак,
+               Твити, Марсианин Марвин. Мировая премьера фильма состоялась 14 июля 2021 года.`,
+          like: false,
+          important: false,
+          id: 10,
         },
       ],
       filter: 'all',
@@ -327,7 +342,7 @@ export default class App extends Component {
     return (
       <div className="app">
         <AppHeader films={filmsNumber} likes={likesNumber} important={importantNumber} />
-        <FilmGenreFilter onFilter={this.changeGenreFilter} />
+        <FilmGenreFilter onFilter={this.changeGenreFilter} chosen={genreFilter} />
         <div className="search-panel">
           <SearchPanel onChange={this.changeSearch} />
           <div
@@ -340,6 +355,7 @@ export default class App extends Component {
           <FilmFilter onFilter={this.changeFilter} />
         </div>
         <FilmList
+          onFilter={this.changeGenreFilter}
           films={visibleFilms}
           onImportant={this.onToggleImportant}
           onLike={this.onToggleLike}

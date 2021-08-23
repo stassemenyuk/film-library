@@ -3,16 +3,8 @@ import React, { Component } from 'react';
 import './FilmGenreFilter.css';
 
 export default class FilmGenreFilter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chosen: 'all',
-    };
-  }
-
   render() {
-    const { onFilter } = this.props;
-    const { chosen } = this.state;
+    const { onFilter, chosen } = this.props;
 
     const defaultClassnames = 'filter-button';
 
@@ -58,7 +50,7 @@ export default class FilmGenreFilter extends Component {
           className={filterAll}
           onClick={() => {
             onFilter('all');
-            this.setState({ chosen: 'all' });
+            // this.setState({ chosen: 'all' });
           }}>
           Все жанры
         </button>
@@ -66,7 +58,7 @@ export default class FilmGenreFilter extends Component {
           className={filterAction}
           onClick={() => {
             onFilter('Боевик');
-            this.setState({ chosen: 'Боевик' });
+            // this.setState({ chosen: 'Боевик' });
           }}>
           Боевик
         </button>
@@ -74,7 +66,7 @@ export default class FilmGenreFilter extends Component {
           className={filterComedy}
           onClick={() => {
             onFilter('Комедия');
-            this.setState({ chosen: 'Комедия' });
+            // this.setState({ chosen: 'Комедия' });
           }}>
           Комедия
         </button>
@@ -82,7 +74,7 @@ export default class FilmGenreFilter extends Component {
           className={filterFantasy}
           onClick={() => {
             onFilter('Фантастика');
-            this.setState({ chosen: 'Фантастика' });
+            // this.setState({ chosen: 'Фантастика' });
           }}>
           Фантастика
         </button>
@@ -90,7 +82,7 @@ export default class FilmGenreFilter extends Component {
           className={filterCriminal}
           onClick={() => {
             onFilter('Криминал');
-            this.setState({ chosen: 'Криминал' });
+            // this.setState({ chosen: 'Криминал' });
           }}>
           Криминал
         </button>
@@ -98,7 +90,7 @@ export default class FilmGenreFilter extends Component {
           className={filterDrama}
           onClick={() => {
             onFilter('Драма');
-            this.setState({ chosen: 'Драма' });
+            // this.setState({ chosen: 'Драма' });
           }}>
           Драма
         </button>
@@ -106,7 +98,7 @@ export default class FilmGenreFilter extends Component {
           className={filterThriller}
           onClick={() => {
             onFilter('Триллер');
-            this.setState({ chosen: 'Триллер' });
+            // this.setState({ chosen: 'Триллер' });
           }}>
           Триллер
         </button>
@@ -114,7 +106,7 @@ export default class FilmGenreFilter extends Component {
           className={filterDetective}
           onClick={() => {
             onFilter('Детектив');
-            this.setState({ chosen: 'Детектив' });
+            // this.setState({ chosen: 'Детектив' });
           }}>
           Детектив
         </button>
