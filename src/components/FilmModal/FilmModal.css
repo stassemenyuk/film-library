@@ -17,6 +17,8 @@
   right: 15px;
   padding: 5px;
   cursor: pointer;
+  padding: 5px;
+  font-size: 22px;
 }
 
 .modal__film-title {
