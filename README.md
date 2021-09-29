@@ -1,6 +1,7 @@
 ## Description
 
 This is a test project and films are stored as a state in App.js.
+You can try it on [Website](http://stassemenyuk.github.io/film-library/)
 
 ## Usage
 
