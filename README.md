@@ -1,6 +1,6 @@
 ## Description
 
-This is test project and films are stored as state in App.js.
+This is a test project and films are stored as a state in App.js.
 
 ## Usage
 
